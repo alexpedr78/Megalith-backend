@@ -8,11 +8,16 @@ connectDB(); // Connect to MongoDB
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: "https://megalith.netlify.app", // Your frontend URL
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Routes
-app.use("/megalith", megalithRoutes);
+app.use("api/megalith", megalithRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello from the megalith!");
