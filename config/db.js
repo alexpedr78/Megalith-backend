@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
-require("dotenv").config(); // Load environment variables from .env file
+// require("dotenv").config(); // Load environment variables from .env file
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config(); // Load environment variables from .env only in development
+}
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
