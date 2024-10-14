@@ -17,7 +17,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
-app.use("/megalith", megalithRoutes);
+app.use("api/megalith", megalithRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello from the megalith!");
