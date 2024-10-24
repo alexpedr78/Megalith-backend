@@ -19,7 +19,6 @@ const updateMegalith = async (req, res) => {
     res.status(500).json({ message: "Error updating megalith", error });
   }
 };
-
 // Delete a megalith by ID
 const deleteMegalith = async (req, res) => {
   try {
@@ -37,7 +36,7 @@ const deleteMegalith = async (req, res) => {
     res.status(500).json({ message: "Error deleting megalith", error });
   }
 };
-
+// Obtain all megaliths
 const getMegaliths = async (req, res) => {
   try {
     const { _limit = 25, _page = 1, name, state, type } = req.query;
@@ -50,26 +49,21 @@ const getMegaliths = async (req, res) => {
     }
 
     const query = {};
-
     // If a name is provided, search by name (using case-insensitive regex)
     if (name) {
       query.name = { $regex: name, $options: "i" }; // Case-insensitive search
     }
-
     // Filter by state if provided
     if (state && state !== "-1") {
       query.state = state;
     }
-
     // Filter by type if provided
     if (type && type !== "-1") {
       query.type = type;
     }
-
     // Execute the query with pagination
     const data = await Megalith.find(query).limit(limit).skip(skip);
     const count = await Megalith.countDocuments(query);
-
     res.status(200).json({
       data,
       totalItems: count,
@@ -81,7 +75,7 @@ const getMegaliths = async (req, res) => {
     res.status(500).json({ message: "Error fetching data", error });
   }
 };
-
+// obtain one megalith with his id
 const getMegalithById = async (req, res) => {
   try {
     const megalithItem = await Megalith.findOne({ id: req.params.id });
@@ -94,7 +88,7 @@ const getMegalithById = async (req, res) => {
     res.status(500).json({ message: "Error fetching data", error });
   }
 };
-
+// create one megalith
 const createMegalith = async (req, res) => {
   try {
     const newMegalith = new Megalith(req.body);

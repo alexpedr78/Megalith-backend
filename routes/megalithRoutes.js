@@ -10,8 +10,8 @@ const {
 
 router.get("/", getMegaliths);
 router.get("/:id", getMegalithById);
-router.put("/:id", updateMegalith); // Update a megalith
-router.delete("/:id", deleteMegalith); // Delete a megalith
+router.put("/:id", updateMegalith);
+router.delete("/:id", deleteMegalith);
 router.post("/", createMegalith);
 
 module.exports = router;

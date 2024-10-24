@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 // Connect to your MongoDB Atlas cluster
 mongoose
   .connect(
@@ -15,10 +14,8 @@ mongoose
     try {
       // Access the "megaliths" collection
       const collection = mongoose.connection.collection("megaliths");
-
       // Drop the index "id_1"
       await collection.dropIndex("id_1");
-
       console.log("Index id_1 dropped successfully");
     } catch (error) {
       console.error("Error dropping index:", error.message);

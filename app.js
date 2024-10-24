@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 const corsOptions = {
-  origin: "https://megalith.netlify.app", // Your frontend URL
+  origin: "https://megalith.netlify.app",
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
