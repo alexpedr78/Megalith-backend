@@ -7,7 +7,7 @@ const {
   deleteMegalith,
   createMegalith,
 } = require("../controllers/megalithController");
-
+router.get("/map", getMegalithsForMap);
 router.get("/", getMegaliths);
 router.get("/:id", getMegalithById);
 router.put("/:id", updateMegalith);
