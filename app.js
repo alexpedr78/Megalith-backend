@@ -7,13 +7,22 @@ connectDB(); // Connect to MongoDB
 
 const app = express();
 
-// Middleware
-const corsOptions = {
-  origin: "https://megalith.netlify.app",
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+const allowedOrigins = [
+  "https://megalith.netlify.app", // Production URL
+  "http://localhost:5173", // Development URL
+];
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
