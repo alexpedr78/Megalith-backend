@@ -94,8 +94,7 @@ const getMegalithsForMap = async (req, res) => {
       query.type = type;
     }
     // Execute the query with pagination
-    const data = await Megalith.find(query).limit(limit).skip(skip);
-    const count = await Megalith.countDocuments(query);
+    const data = await Megalith.find(query);
     res.status(200).json({
       data,
     });
