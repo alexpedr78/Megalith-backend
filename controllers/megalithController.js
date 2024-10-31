@@ -22,8 +22,9 @@ const updateMegalith = async (req, res) => {
 // Delete a megalith by ID
 const deleteMegalith = async (req, res) => {
   try {
+    // Attempt to delete by `id` or `_id`, depending on the structure of your database
     const deletedMegalith = await Megalith.findOneAndDelete({
-      id: req.params.id,
+      $or: [{ id: req.params.id }, { _id: req.params.id }],
     });
 
     if (!deletedMegalith) {
@@ -36,6 +37,7 @@ const deleteMegalith = async (req, res) => {
     res.status(500).json({ message: "Error deleting megalith", error });
   }
 };
+
 // Obtain all megaliths
 const getMegaliths = async (req, res) => {
   try {
