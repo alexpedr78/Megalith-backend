@@ -21,6 +21,7 @@ const updateMegalith = async (req, res) => {
 };
 // Delete a megalith by ID
 const deleteMegalith = async (req, res) => {
+  console.log(req.params.id);
   try {
     // Attempt to delete by `id` or `_id`, depending on the structure of your database
     const deletedMegalith = await Megalith.findOneAndDelete({
