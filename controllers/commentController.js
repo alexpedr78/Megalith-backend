@@ -2,7 +2,7 @@
 const Comment = require("../models/comment");
 const Megalith = require("../models/megalith");
 
-exports.createComment = async (req, res) => {
+const createComment = async (req, res) => {
   try {
     const { megalithId, text } = req.body;
     const comment = await Comment.create({ text, megalith: megalithId });
@@ -18,7 +18,7 @@ exports.createComment = async (req, res) => {
   }
 };
 
-exports.getComments = async (req, res) => {
+const getComments = async (req, res) => {
   try {
     const comments = await Comment.find({ megalith: req.params.megalithId });
     res.status(200).json(comments);
@@ -27,4 +27,8 @@ exports.getComments = async (req, res) => {
       .status(500)
       .json({ error: "Failed to retrieve comments", details: error });
   }
+};
+module.exports = {
+  createComment,
+  getComments,
 };

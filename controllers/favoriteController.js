@@ -1,7 +1,7 @@
 // controllers/favoriteController.js
 const Favorite = require("../models/Favorite");
 
-exports.addFavorite = async (req, res) => {
+const addFavorite = async (req, res) => {
   try {
     const megalithId = req.params.id; // Correct parameter retrieval
     const favorite = await Favorite.create({ megalith: megalithId });
@@ -14,7 +14,7 @@ exports.addFavorite = async (req, res) => {
   }
 };
 
-exports.getFavorites = async (req, res) => {
+const getFavorites = async (req, res) => {
   try {
     const favorites = await Favorite.find({ megalith: req.params.megalithId });
     res.status(200).json(favorites);
@@ -23,4 +23,8 @@ exports.getFavorites = async (req, res) => {
       .status(500)
       .json({ error: "Failed to retrieve favorites", details: error });
   }
+};
+module.exports = {
+  getFavorites,
+  addFavorite,
 };

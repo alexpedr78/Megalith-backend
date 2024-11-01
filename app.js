@@ -1,17 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const megalithRoutes = require("./routes/megalithRoutes");
-const favoriteRoutes = require("./routes/favoriteRoutes");
-// const commentRoutes = require("./routes/commentRoutes");
-// const favoriteRoutes = require("./routes/favor");
+const megalithRoutes = require("./routes/megalithRoutes"); // Imported as default export
+const favoriteRoutes = require("./routes/favoriteRoutes"); // Imported as default export
 connectDB(); // Connect to MongoDB
-
 const app = express();
 
 const allowedOrigins = [
-  "https://megalith.netlify.app", // Production URL
-  "http://localhost:5173", // Development URL
+  "https://megalith.netlify.app",
+  "http://localhost:5173",
 ];
 
 const corsOptions = {
@@ -27,11 +24,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Routes
+// Use the routes as middleware functions
 app.use("/api/megalith", megalithRoutes);
+app.use("/api/favorite", favoriteRoutes); // Corrected path
 
-// Routes
-app.use("/api/favorite", favoriteRoutes);
 app.get("/", (req, res) => {
   res.send("Hello from the megalith!");
 });

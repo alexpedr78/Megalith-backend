@@ -32,4 +32,4 @@ router.get("/comment/:megalithId", getComments); // Get all comments for a speci
 
 // router.post("/favorite/:id", addFavorite); // Add a megalith to favorites
 // router.get("/favorite/:megalithId", getFavorites); // Get all favorites for a specific megalith
-// module.exports = router;
+module.exports = router;

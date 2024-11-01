@@ -6,7 +6,7 @@ const {
   getFavorites,
 } = require("../controllers/favoriteController");
 
-router.post("/:id", addFavorite); // Add a megalith to favorites
-router.get("/:megalithId", getFavorites); // Get all favorites for a specific megalith
+router.post("/:id", addFavorite);
+router.get("/:megalithId", getFavorites);
 
-module.exports = router;
+module.exports = router; // Ensure this is using module.exports
