@@ -7,11 +7,6 @@ exports.addFavorite = async (req, res) => {
     const { megalithId } = req.params.id;
     const favorite = await Favorite.create({ megalith: megalithId });
 
-    // Add favorite to megalith's favorites array
-    await Megalith.findByIdAndUpdate(megalithId, {
-      $push: { favorites: favorite._id },
-    });
-
     res.status(201).json(favorite);
   } catch (error) {
     res
