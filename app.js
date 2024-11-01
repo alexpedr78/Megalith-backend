@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const megalithRoutes = require("./routes/megalithRoutes");
-
+// const commentRoutes = require("./routes/commentRoutes");
+// const favoriteRoutes = require("./routes/favor");
 connectDB(); // Connect to MongoDB
 
 const app = express();

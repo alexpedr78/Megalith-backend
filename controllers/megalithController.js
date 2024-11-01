@@ -25,7 +25,7 @@ const deleteMegalith = async (req, res) => {
   try {
     // Attempt to delete by `id` or `_id`, depending on the structure of your database
     const deletedMegalith = await Megalith.findOneAndDelete({
-      $or: [{ id: req.params.id }, { _id: req.params.id }],
+      _id: req.params.id,
     });
 
     if (!deletedMegalith) {
