@@ -28,8 +28,8 @@ router.post("/", createMegalith);
 
 router.post("/comment", createComment); // Create a new comment for a megalith
 router.get("/comment/:megalithId", getComments); // Get all comments for a specific megalith
-// favorite
+// // favorite
 
-router.post("/favorite/:id", addFavorite); // Add a megalith to favorites
-router.get("/favorite/:megalithId", getFavorites); // Get all favorites for a specific megalith
-module.exports = router;
+// router.post("/favorite/:id", addFavorite); // Add a megalith to favorites
+// router.get("/favorite/:megalithId", getFavorites); // Get all favorites for a specific megalith
+// module.exports = router;

@@ -1,10 +1,9 @@
 // controllers/favoriteController.js
 const Favorite = require("../models/Favorite");
-const Megalith = require("../models/megalith");
 
 exports.addFavorite = async (req, res) => {
   try {
-    const { megalithId } = req.params.id;
+    const megalithId = req.params.id; // Correct parameter retrieval
     const favorite = await Favorite.create({ megalith: megalithId });
 
     res.status(201).json(favorite);

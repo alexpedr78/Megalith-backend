@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const megalithRoutes = require("./routes/megalithRoutes");
+const favoriteRoutes = require("./routes/favoriteRoutes");
 // const commentRoutes = require("./routes/commentRoutes");
 // const favoriteRoutes = require("./routes/favor");
 connectDB(); // Connect to MongoDB
@@ -29,6 +30,8 @@ app.use(express.json());
 // Routes
 app.use("/api/megalith", megalithRoutes);
 
+// Routes
+app.use("/api/favorite", favoriteRoutes);
 app.get("/", (req, res) => {
   res.send("Hello from the megalith!");
 });
