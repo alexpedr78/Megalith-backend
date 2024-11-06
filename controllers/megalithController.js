@@ -52,19 +52,19 @@ const getMegaliths = async (req, res) => {
     }
 
     const query = {};
-    // If a name is provided, search by name (using case-insensitive regex)
+
     if (name) {
-      query.name = { $regex: name, $options: "i" }; // Case-insensitive search
+      query.name = { $regex: name, $options: "i" };
     }
-    // Filter by state if provided
+
     if (state && state !== "-1") {
       query.state = state;
     }
-    // Filter by type if provided
+
     if (type && type !== "-1") {
       query.type = type;
     }
-    // Execute the query with pagination
+
     const data = await Megalith.find(query).limit(limit).skip(skip);
     const count = await Megalith.countDocuments(query);
     res.status(200).json({

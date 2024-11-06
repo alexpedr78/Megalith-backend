@@ -1,4 +1,3 @@
-// routes/favoriteRoutes.js
 const express = require("express");
 const router = express.Router();
 const {
@@ -9,4 +8,4 @@ const {
 router.post("/:id", addFavorite);
 router.get("/:megalithId", getFavorites);
 
-module.exports = router; // Ensure this is using module.exports
+module.exports = router;

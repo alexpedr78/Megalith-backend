@@ -8,4 +8,4 @@ const {
 router.post("/commment/:id", createComment);
 router.get("/:megalithId", getComments);
 
-module.exports = router; // Ensure this is using module.exports
+module.exports = router;

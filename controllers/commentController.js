@@ -1,4 +1,3 @@
-// controllers/commentController.js
 const Comment = require("../models/comment");
 const Megalith = require("../models/megalith");
 
@@ -7,7 +6,6 @@ const createComment = async (req, res) => {
     const { megalithId, text } = req.body;
     const comment = await Comment.create({ text, megalith: megalithId });
 
-    // Add comment to megalith's comments array
     await Megalith.findByIdAndUpdate(megalithId, {
       $push: { comments: comment._id },
     });
