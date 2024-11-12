@@ -33,5 +33,8 @@ app.use;
 app.get("/", (req, res) => {
   res.send("Hello from the megalith!");
 });
+app.get("/api/users", (req, res) => {
+  res.send("User data");
+});
 
 module.exports = app;
