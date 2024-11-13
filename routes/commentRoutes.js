@@ -5,7 +5,7 @@ const {
   getComments,
 } = require("../controllers/commentController.js");
 
-router.post("/commments", createComment);
+router.post("/", createComment);
 router.get("/:megalithId", getComments);
 
 module.exports = router;
