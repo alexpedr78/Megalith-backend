@@ -29,7 +29,6 @@ app.use(express.json());
 app.use("/api/megalith", megalithRoutes);
 app.use("/api/favorite", favoriteRoutes);
 app.use("/api/comments", commentRoutes);
-app.use;
 
 // test
 app.get("/", (req, res) => {
