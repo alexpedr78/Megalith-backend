@@ -35,6 +35,7 @@ Welcome to the backend of **Megalith**, a robust and scalable application design
 ---
 
 ## **Contributing**
+
 Contributions are welcome! To contribute:
 
 - Fork the repository.
@@ -42,12 +43,9 @@ Contributions are welcome! To contribute:
 - Commit your changes: git commit -m 'Add feature name'.
 - Push to your branch: git push origin feature-name.
 - Open a pull request.
-  
+
 ---
 
 ## License
 
-This project is licensed under the MIT License. 
-
-
-
+This project is licensed under the MIT License.
